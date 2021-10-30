@@ -6,7 +6,6 @@ namespace zlinz_3_k26
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
         }
     }
 }
