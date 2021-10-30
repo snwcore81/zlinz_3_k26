@@ -6,7 +6,7 @@ using System.Text;
 namespace zlinz_3_k26.Classes.Business
 {
     [DataContract]
-    public class User : XmlStorage<User>
+    public class User : AutoInitXmlStorage<User>
     {
         [DataMember]
         public string Login { get; set; }
@@ -14,22 +14,17 @@ namespace zlinz_3_k26.Classes.Business
         public string Password { get; set; }
         [DataMember]
         public int Permission { get; set; }
+        [DataMember]
+        public ResponseObject Response { get; set; }
 
         public User()
         {
+            Response = new ResponseObject();
         }
-        public override bool InitializeFromObject(User Object)
-        {
-            this.Login = Object.Login;
-            this.Password = Object.Password;
-            this.Permission = Object.Permission;
-
-            return true;
-        }
-
+        
         public override string ToString()
         {
-            return $"[Login={Login}|Password=???|Permission={Permission}]";
+            return $"[Login={Login}|Password=???|Permission={Permission}|Response={Response}]";
         }
 
     }
